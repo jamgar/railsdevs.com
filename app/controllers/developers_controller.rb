@@ -3,7 +3,7 @@ class DevelopersController < ApplicationController
   before_action :require_new_developer!, only: %i[new create]
 
   def index
-    @developers_count = Developer.count.round(-1)
+    @developers_count = Developer.visible.count.round(-2)
     @query = DeveloperQuery.new(permitted_attributes([:developers, :query]))
   end
 
