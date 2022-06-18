@@ -5,6 +5,7 @@ class DevelopersController < ApplicationController
   def index
     @developers_count = Developer.count.round(-1)
     @query = DeveloperQuery.new(permitted_attributes([:developers, :query]))
+    @title = Developers::Title.new(@query).title
   end
 
   def new
